@@ -3,11 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Теплее — подсказывает на созвоне, что сказать клиенту</title>
-<meta name="description" content="Теплее слушает созвон, знает твои цены и проекты и ведёт от первого вопроса до оплаты. Ставлю на твой Mac под ключ за один день.">
-<meta property="og:title" content="Теплее — подсказывает на созвоне, что сказать клиенту">
+<title>Closer — подсказывает на созвоне, что сказать клиенту</title>
+<meta name="description" content="Closer слушает созвон, знает твои цены и проекты и ведёт от первого вопроса до оплаты. Ставлю на твой Mac под ключ за один день.">
+<meta property="og:title" content="Closer — подсказывает на созвоне, что сказать клиенту">
 <meta property="og:description" content="Слушает созвон, знает твои цены и проекты, ведёт от первого вопроса до оплаты. Установка под ключ за день.">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://shumniyvlad-cell.github.io/closer/img/vika.jpg">
 <meta name="theme-color" content="#CBDDF0">
 <link rel="preload" href="fonts/RobotoFlex-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="fonts/fonts.css">
@@ -16,7 +17,7 @@
 <body>
 
 <header class="bar">
-  <a class="mark" href="#zadacha" aria-label="Теплее, в начало">Теплее</a>
+  <a class="mark" href="#zadacha" aria-label="Closer, в начало">Closer</a>
   <nav class="scale" aria-label="Шесть шагов продажи">
     <a href="#zadacha"><i></i><span>Задача</span></a>
     <a href="#cifry"><i></i><span>Цифры</span></a>
@@ -26,67 +27,75 @@
     <a href="#shag"><i></i><span>Шаг</span></a>
   </nav>
   <span class="temp" id="temp" aria-hidden="true">холодно</span>
-  <a class="btn btn-small" href="https://t.me/marchvlv?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BF%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%B8%D1%82%D1%8C%20%D0%A2%D0%B5%D0%BF%D0%BB%D0%B5%D0%B5." target="_blank" rel="noopener">Поставить себе</a>
+  <a class="btn btn-small" href="https://t.me/marchvlv?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BF%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%B8%D1%82%D1%8C%20Closer." target="_blank" rel="noopener">Поставить себе</a>
 </header>
 
 <main>
 
 <section class="step hero" id="zadacha" data-step="1">
-  <div class="hero-text">
+  <div class="hero-top">
     <h1>Подсказывает, что сказать клиенту, пока ты с ним говоришь</h1>
-    <p class="lead">Теплее слушает созвон, знает твои цены и проекты и ведёт от первого вопроса до оплаты. Как в игре: холодно, теплее, горячо. Ставлю на твой Mac под ключ за один день.</p>
-    <div class="actions">
-      <a class="btn" href="https://t.me/marchvlv?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BF%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%B8%D1%82%D1%8C%20%D0%A2%D0%B5%D0%BF%D0%BB%D0%B5%D0%B5." target="_blank" rel="noopener">Поставить себе</a>
-      <button class="btn btn-ghost" type="button" id="play">Проиграть созвон</button>
+    <div class="hero-side">
+      <p class="lead">Closer слушает созвон, знает твои цены и проекты и ведёт от первого вопроса до оплаты. Как в игре: холодно, теплее, горячо. Ставлю на твой Mac под ключ за один день.</p>
+      <div class="actions">
+        <a class="btn" href="https://t.me/marchvlv?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BF%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%B8%D1%82%D1%8C%20Closer." target="_blank" rel="noopener">Поставить себе</a>
+        <button class="btn btn-ghost" type="button" id="play">Проиграть созвон</button>
+      </div>
     </div>
-    <p class="aside">Эта страница идёт по тем же шести шагам, по которым Теплее ведёт продажу. Шкала сверху настоящая: листай, и станет теплее.</p>
   </div>
 
   <div class="scene" id="demo">
-    <div class="call" aria-hidden="true">
-      <div class="call-top"><i class="rec"></i><span>Созвон с клиентом</span><span class="timer" id="timer">00:00</span></div>
+    <div class="call">
+      <div class="call-top" aria-hidden="true"><i class="rec"></i><span>Созвон с клиентом</span><span class="timer" id="timer">00:00</span></div>
       <div class="tile" id="tileK">
-        <div class="avatar"><span>В</span></div>
+        <img class="face" src="img/vika.jpg" alt="Клиентка на видеосозвоне" width="1280" height="949" id="faceImg">
+        <video class="face" id="faceTalk" muted playsinline loop preload="none" poster="img/vika.jpg" hidden></video>
+        <video class="face" id="faceListen" muted playsinline loop preload="none" poster="img/vika.jpg" hidden></video>
         <span class="name">Вика, риелтор</span>
-        <div class="self" id="tileMe"><span>Ты</span></div>
+        <div class="self" id="tileMe"><img src="img/vlad-self.jpg" alt="" width="320" height="240"><span>Ты</span></div>
       </div>
-      <p class="caption"><b id="capWho"></b><span id="capText"></span></p>
+      <p class="caption" aria-hidden="true"><b id="capWho"></b><span id="capText"></span></p>
     </div>
 
-    <div class="panel" role="group" aria-label="Окно Теплее во время созвона">
-      <div class="p-head">
-        <i class="p-dot"></i>
-        <span class="p-seg"><b>Продажа</b><span>Проект</span></span>
-        <span class="p-lv">Я<i id="lvMe"></i></span>
-        <span class="p-lv">К<i id="lvK"></i></span>
+    <div class="scene-side">
+      <div class="panel" role="group" aria-label="Окно Closer во время созвона">
+        <div class="p-head">
+          <i class="p-dot"></i>
+          <span class="p-seg"><b>Продажа</b><span>Проект</span></span>
+          <span class="p-lv">Я<i id="lvMe"></i></span>
+          <span class="p-lv">К<i id="lvK"></i></span>
+        </div>
+        <div class="p-scale" id="pScale">
+          <div class="p-segs"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="p-row"><b id="pStage">1/6 Задача</b><span id="pMiss">до предложения: задача, цифра, срок</span></div>
+        </div>
+        <div class="p-hint" aria-live="polite">
+          <span class="chip" id="pTag" hidden></span>
+          <p id="pText" class="p-wait">Слушаю…</p>
+        </div>
+        <div class="p-foot" id="pFoot"></div>
       </div>
-      <div class="p-scale" id="pScale">
-        <div class="p-segs"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-        <div class="p-row"><b id="pStage">1/6 Задача</b><span id="pMiss">до предложения: задача, цифра, срок</span></div>
-      </div>
-      <div class="p-hint" aria-live="polite">
-        <span class="chip" id="pTag" hidden></span>
-        <p id="pText" class="p-wait">Слушаю…</p>
-      </div>
-      <div class="p-foot" id="pFoot"></div>
-    </div>
+      <p class="panel-note">Это окно видишь только ты. На записи и в демонстрации экрана его нет.</p>
 
-    <div class="replies" id="replies">
-      <p>Ответь за клиента и посмотри, что он подскажет:</p>
-      <div class="reply-row">
-        <button type="button" data-reply="think">Мне надо подумать</button>
-        <button type="button" data-reply="guarantee">А гарантии есть?</button>
-        <button type="button" data-reply="price">Дорого</button>
-        <button type="button" data-reply="weather">Кстати, как у вас погода?</button>
+      <div class="replies" id="replies">
+        <p>Ответь за клиента и посмотри, что он подскажет:</p>
+        <div class="reply-row">
+          <button type="button" data-reply="think">Мне надо подумать</button>
+          <button type="button" data-reply="guarantee">А гарантии есть?</button>
+          <button type="button" data-reply="price">Дорого</button>
+          <button type="button" data-reply="weather">Кстати, как у вас погода?</button>
+        </div>
       </div>
     </div>
   </div>
+
+  <p class="aside">Эта страница идёт по тем же шести шагам, по которым Closer ведёт продажу. Шкала сверху настоящая: листай, и станет теплее.</p>
 </section>
 
 <section class="step" id="cifry" data-step="2">
   <div class="wrap">
     <h2>Проверено на своих созвонах</h2>
-    <p class="lead narrow">Я продюсер и продаю на созвонах каждую неделю. Теплее сначала поставил себе, и вот что получилось.</p>
+    <p class="lead narrow">Я продюсер и продаю на созвонах каждую неделю. Closer сначала поставил себе, и вот что получилось.</p>
     <dl class="figures">
       <div>
         <dt>3-я минута</dt>
@@ -109,7 +118,7 @@
 </section>
 
 <section class="step" id="srok" data-step="3">
-  <div class="wrap two">
+  <div class="wrap two install">
     <div>
       <h2>Ставлю за один день</h2>
       <ol class="days">
@@ -118,13 +127,7 @@
         <li><span><b>Ставлю на твой Mac.</b> Подключаю к твоему Claude, заношу цены и проекты, проверяем на пробном созвоне.</span></li>
         <li><span><b>Через неделю подстройка.</b> Смотрим живые созвоны и правим места, где подсказки мешали или опаздывали.</span></li>
       </ol>
-    </div>
-    <div class="need">
-      <figure class="who">
-        <img src="img/vlad.jpg" alt="Влад, который ставит Теплее" width="800" height="800" loading="lazy">
-        <figcaption>Ставлю сам. Влад, продюсер, пятнадцатый год в запусках.</figcaption>
-      </figure>
-      <h3>Что нужно от тебя</h3>
+      <h3 class="need-title">Что нужно от тебя</h3>
       <ul class="plain">
         <li>Mac на процессоре Apple, от M1, с macOS 26</li>
         <li>Подписка Claude</li>
@@ -132,44 +135,74 @@
       </ul>
       <p class="minus">Не подойдёт, если у тебя Windows: такой версии пока нет.</p>
     </div>
+    <figure class="who">
+      <img src="img/vlad.jpg" alt="Влад, который ставит Closer" width="1000" height="1250" loading="lazy">
+      <figcaption><b>Ставлю сам.</b> Влад, продюсер, пятнадцатый год в запусках. Продаю на созвонах каждую неделю и Closer сначала собрал для себя.</figcaption>
+    </figure>
   </div>
 </section>
 
 <section class="step" id="predlozhenie" data-step="4">
   <div class="wrap">
-    <h2>Чем Теплее отличается от суфлёров по подписке</h2>
-    <div class="feats">
-      <article>
-        <h3>Знает твои цены</h3>
-        <p>Клиент спросил, сколько стоит, и на экране твоя цифра и что в неё входит. Чего в базе нет, он не выдумывает.</p>
-        <div class="mini mini-hint"><span class="chip chip-fact">Факт</span><p>Первый месяц 40 000 и 15% с продаж. В фикс входят сайт и воронка.</p></div>
-      </article>
-      <article>
+    <h2>Чем Closer отличается от суфлёров по подписке</h2>
+
+    <article class="row">
+      <div class="row-text">
+        <h3>Знает твои цены и говорит твоими словами</h3>
+        <p>Клиент спросил, сколько стоит, и на экране твоя цифра и что в неё входит. Чего в базе нет, он не выдумывает. Подсказки собраны из твоих же фраз, поэтому читаешь с экрана, а звучит как ты.</p>
+      </div>
+      <div class="shot">
+        <img src="img/vika.jpg" alt="" width="1280" height="949" loading="lazy">
+        <div class="panel panel-static" aria-hidden="true">
+          <div class="p-scale">
+            <div class="p-segs"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on now"></i><i></i></div>
+            <div class="p-row"><b>5/6 Цена</b><span>теплее</span></div>
+          </div>
+          <div class="p-hint"><span class="chip chip-fact">Факт</span><p>Первый месяц 40 000 и 15% с продаж. В фикс входят сайт и воронка.</p></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="row row-flip">
+      <div class="row-text">
         <h3>Помнит твои проекты</h3>
-        <p>На созвоне с действующим клиентом показывает, на каком вы этапе, чего ждёте от него и что обещал ты. Есть поиск по всем проектам сразу.</p>
-        <div class="mini mini-search"><span class="q">соня домен</span><p><b>Соня, школа рисунка</b>Домен куплен, но не переключён: ждём от неё доступ к регистратору.</p></div>
-      </article>
-      <article>
-        <h3>Говорит твоими словами</h3>
-        <p>Подсказки собраны из твоих же фраз и образов. Читаешь с экрана, а звучит как ты.</p>
-        <div class="mini mini-hint"><span class="chip chip-say">Скажи</span><p>Смотри, любой запуск делится на два полушария.</p></div>
-      </article>
-      <article>
-        <h3>Учится после каждого созвона</h3>
-        <p>Нажал стоп и получил итоги: о чём договорились, что от кого нужно, готовое сообщение клиенту. Новые правила он сам дописывает в свою базу.</p>
-        <div class="mini mini-note"><p>Записал: в плейбук 2 правила, в карточку проекта договорённости.</p></div>
-      </article>
-      <article>
-        <h3>Возвращает, когда уходишь в сторону</h3>
-        <p>Говоришь один сорок секунд — спросит, есть ли у клиента вопросы. Ушёл в посторонние темы — шкала холодает.</p>
-        <div class="mini mini-hint mini-cold"><span class="chip chip-ask">Спроси</span><p>Как тебе, вопросики есть?</p></div>
-      </article>
-    </div>
+        <p>На созвоне с действующим клиентом показывает, на каком вы этапе, чего ждёте от него и что обещал ты. Есть поиск по всем проектам сразу: набрал имя и слово, получил нужную строку.</p>
+      </div>
+      <div class="shot">
+        <img src="img/sonya.jpg" alt="" width="1100" height="701" loading="lazy">
+        <div class="panel panel-static" aria-hidden="true">
+          <div class="p-head"><i class="p-dot"></i><span class="p-seg"><span>Продажа</span><b>Проект</b></span></div>
+          <div class="p-search"><i></i>соня домен</div>
+          <div class="p-hint"><span class="chip chip-fact">Факт</span><p>Домен куплен, но не переключён: ждём от неё доступ к регистратору.</p></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="row">
+      <div class="row-text">
+        <h3>Сам пишет итоги и учится после каждого созвона</h3>
+        <p>Нажал стоп и получил итоги: о чём договорились, что от кого нужно, готовое сообщение клиенту. Новые правила он дописывает в свою базу, и следующий созвон начинает уже с ними.</p>
+      </div>
+      <div class="shot shot-plain">
+        <div class="panel panel-static panel-sum" aria-hidden="true">
+          <div class="p-head"><i class="p-dot p-dot-off"></i><span class="p-seg"><b>Продажа</b><span>Проект</span></span><span class="p-time">созвон окончен, 12:17</span></div>
+          <dl class="sum">
+            <dt>Итог</dt><dd>Договорились начать, созвон в четверг в 15:00.</dd>
+            <dt>От клиента</dt><dd>Оплатить по ссылке, прислать доступы.</dd>
+            <dt>От меня</dt><dd>Прислать ссылку и план по часам.</dd>
+            <dt>Сообщение клиенту</dt><dd>Привет! Как договорились, высылаю ссылку. В четверг в 15:00 начинаем с разбора продукта.</dd>
+          </dl>
+          <p class="learned">Записал: в плейбук 2 правила, в карточку проекта договорённости.</p>
+        </div>
+      </div>
+    </article>
+
+    <p class="back">Уходишь в сторону или говоришь один сорок секунд — шкала холодает, и он возвращает тебя к продаже. <a href="#demo">Проверь наверху: нажми «Кстати, как у вас погода?»</a></p>
 
     <table class="versus">
       <caption>Коротко о разнице</caption>
       <thead>
-        <tr><th scope="col"></th><th scope="col">Суфлёр по подписке</th><th scope="col">Теплее</th></tr>
+        <tr><th scope="col"></th><th scope="col">Суфлёр по подписке</th><th scope="col">Closer</th></tr>
       </thead>
       <tbody>
         <tr><th scope="row">Твой прайс и кейсы</th><td>Не знает</td><td>Знает и называет</td></tr>
@@ -204,7 +237,7 @@
     <div>
       <h2>Напиши мне, выберем день установки</h2>
       <p class="lead">Отвечаю сам. Сначала полчаса созвона, чтобы понять, подходит ли тебе.</p>
-      <a class="btn btn-dark" href="https://t.me/marchvlv?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BF%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%B8%D1%82%D1%8C%20%D0%A2%D0%B5%D0%BF%D0%BB%D0%B5%D0%B5." target="_blank" rel="noopener">Написать в Telegram</a>
+      <a class="btn btn-dark" href="https://t.me/marchvlv?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BF%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%B8%D1%82%D1%8C%20Closer." target="_blank" rel="noopener">Написать в Telegram</a>
     </div>
     <div class="faq">
       <details>
@@ -227,10 +260,14 @@
         <summary>А если я продаю не услуги?</summary>
         <p>Шесть шагов продажи и база настраиваются под тебя. На первом созвоне поймём, подходит ли.</p>
       </details>
+      <details>
+        <summary>Люди на фото настоящие?</summary>
+        <p>Влад настоящий. Клиенты в кадрах созвона нарисованы нейросетью: записи настоящих разговоров я не показываю.</p>
+      </details>
     </div>
   </div>
   <footer>
-    <span>Теплее. Ставит Влад.</span>
+    <span>Closer. Ставит Влад.</span>
     <a href="https://t.me/marchvlv" target="_blank" rel="noopener">Telegram @marchvlv</a>
   </footer>
 </section>

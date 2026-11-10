@@ -1,4 +1,4 @@
-/* Теплее: страница нагревается при прокрутке, в первом экране идёт созвон с подсказками. */
+/* Closer: страница нагревается при прокрутке, в первом экране идёт созвон с подсказками. */
 (() => {
   const $ = (id) => document.getElementById(id);
   const root = document.documentElement;
@@ -6,11 +6,11 @@
   /* ---------- Движение: уважать системную настройку, но дать включить флагом ?motion=1 ---------- */
   const params = new URLSearchParams(location.search);
   try {
-    if (params.get('motion') === '1') localStorage.setItem('teplee-motion', '1');
-    if (params.get('motion') === '0') localStorage.removeItem('teplee-motion');
+    if (params.get('motion') === '1') localStorage.setItem('closer-motion', '1');
+    if (params.get('motion') === '0') localStorage.removeItem('closer-motion');
   } catch (e) { /* хранилище недоступно: работаем без запоминания */ }
   let forced = false;
-  try { forced = localStorage.getItem('teplee-motion') === '1'; } catch (e) { forced = params.get('motion') === '1'; }
+  try { forced = localStorage.getItem('closer-motion') === '1'; } catch (e) { forced = params.get('motion') === '1'; }
   const calm = matchMedia('(prefers-reduced-motion: reduce)').matches && !forced;
 
   /* ---------- Температура страницы ---------- */
@@ -58,7 +58,7 @@
   const STAGES = ['Задача', 'Цифры', 'Срок и бюджет', 'Предложение', 'Цена', 'Шаг'];
   const TAGS = { ask: 'Спроси', say: 'Скажи', fact: 'Факт', close: 'Закрывай' };
 
-  // Реплики и подсказки взяты из настоящих прогонов Теплее на пробном созвоне.
+  // Реплики и подсказки взяты из настоящих прогонов Closer на пробном созвоне.
   const CALL = [
     { who: 'k', text: 'Привет! У меня блог про недвижимость в Сочи, двенадцать тысяч подписчиков. А заявок две-три в месяц.' },
     { stage: 1, missing: ['цифра', 'срок'], tag: 'ask', hint: 'А что уже пробовала, чтобы заявок стало больше?' },
@@ -90,6 +90,25 @@
     tag: $('pTag'), text: $('pText'), foot: $('pFoot'),
     play: $('play'), replies: [...document.querySelectorAll('[data-reply]')],
   };
+
+  // Лицо клиента: два коротких немых ролика с одного кадра, «говорит» и «слушает».
+  const face = { img: $('faceImg'), talk: $('faceTalk'), listen: $('faceListen'), ready: false };
+  function loadFace() {
+    if (calm || face.ready) return;
+    face.ready = true;
+    face.talk.src = 'img/vika-talk.mp4';
+    face.listen.src = 'img/vika-listen.mp4';
+    [face.talk, face.listen].forEach(v => { v.addEventListener('error', () => { v.dataset.bad = '1'; v.hidden = true; }); v.load(); });
+  }
+  function showFace(mode) {
+    if (calm || !face.ready) return;
+    const on = mode === 'talk' ? face.talk : face.listen;
+    const off = mode === 'talk' ? face.listen : face.talk;
+    off.pause(); off.hidden = true;
+    if (on.dataset.bad) return;
+    on.hidden = false;
+    on.play().catch(() => { on.hidden = true; });
+  }
 
   let run = 0;          // номер текущего проигрывания: новое отменяет старое
   let seconds = 0;
@@ -145,6 +164,7 @@
     const tile = who === 'k' ? el.tileK : el.tileMe;
     const meter = who === 'k' ? el.lvK : el.lvMe;
     el.capWho.textContent = who === 'k' ? 'Вика' : 'Ты';
+    showFace(who === 'k' ? 'talk' : 'listen');
     if (instant) { el.capText.textContent = text; pushFooter(who, text); return; }
     tile.classList.add('talk');
     el.capText.textContent = '';
@@ -158,6 +178,7 @@
     } finally {
       level(meter, 0.06);
       tile.classList.remove('talk');
+      if (who === 'k') showFace('listen');
     }
     pushFooter(who, text);
   }
@@ -200,6 +221,7 @@
   async function playCall(instant) {
     const id = ++run;
     reset();
+    if (!instant) loadFace();
     el.play.textContent = instant ? 'Проиграть созвон' : 'Сначала';
     if (!instant) startClock(id);
     try {
@@ -214,6 +236,7 @@
     const id = ++run;
     clearInterval(clock);
     el.replies.forEach(b => b.setAttribute('aria-pressed', String(b === button)));
+    loadFace();
     try {
       await playEvents(REPLIES[key], id, false);
     } catch (e) { /* нажали другой ответ: этот отменён */ }
