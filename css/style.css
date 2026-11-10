@@ -228,9 +228,11 @@ p { text-wrap: pretty; }
 .p-foot b { color: #9CC9F5; font-weight: 700; margin-right: 6px; }
 .p-foot p.me b { color: var(--panel-dim); }
 
-.panel-note { margin: 12px 0 0 clamp(40px, 5.4vw, 90px); font-size: .86em; color: var(--ink-soft); }
+/* Всё под окном стоит по второму делению шкалы: так текст держится за окно и не липнет к кадру созвона */
+.scene-side { --under: calc(100% / 6 + 10px); }
+.panel-note { margin: clamp(24px, 2.2vw, 34px) 0 0 var(--under); max-width: 31em; font-size: .9em; line-height: 1.4; color: var(--ink-soft); text-wrap: balance; }
 
-.replies { margin: clamp(22px, 2.6vw, 38px) 0 0 clamp(40px, 5.4vw, 90px); }
+.replies { margin: clamp(26px, 2.8vw, 42px) 0 0 var(--under); }
 .replies > p { font-size: .98em; font-weight: 640; }
 .reply-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
 .reply-row button {
